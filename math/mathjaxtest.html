@@ -1,84 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>AMICS: Prime Numbers and Encryption</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 2rem;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: #2c3e50;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    h1, h2 {
-      color: #1e88e5;
-    }
-    section {
-      margin-top: 2rem;
-    }
-    code {
-      background: #eee;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Numbers and Encryption</title>
+    
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .author {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin: 8px 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+
+        .theorem-box {
+            background-color: #e8f5e8;
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .definition {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .algorithm-box {
+            background-color: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .example {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        ol, ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .math-display {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>AMICS</h1>
-    <p>Applied Mathematics, Programming, Physics & Engineering Archive</p>
-  </header>
+    <h1>Prime Numbers and Encryption</h1>
+    <div class="author">AMICS</div>
 
-  <main>
-    <section>
-      <h2>Prime Numbers and Encryption</h2>
-      <p><strong>Definition 1.</strong> An integer \( p > 1 \) is called a prime if its only divisors are 1 and \( p \) itself.</p>
-      <p>The number 75 can be written as \( 3 \times 5^2 \). The numbers 3 and 5 here are called the prime factors of 75.</p>
-      <p>The <strong>Fundamental Theorem of Arithmetic</strong> says that any integer \( n > 1 \) has a unique representation as a product of primes.</p>
-      <p>Euclid’s Theorem: There are infinitely many primes.</p>
-    </section>
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#section1">1. Prime Numbers</a>
+                <ul>
+                    <li><a href="#section1-1">1.1 Definition and basic theorems</a></li>
+                </ul>
+            </li>
+            <li><a href="#section2">2. Primality check with trial division</a>
+                <ul>
+                    <li><a href="#section2-1">2.1 Trial division</a></li>
+                </ul>
+            </li>
+            <li><a href="#section3">3. Modular arithmetic and important theorems</a>
+                <ul>
+                    <li><a href="#section3-1">3.1 Modular arithmetic</a></li>
+                    <li><a href="#section3-2">3.2 Fermat's primality test</a></li>
+                </ul>
+            </li>
+            <li><a href="#section4">4. Prime Numbers in RSA Encryption</a>
+                <ul>
+                    <li><a href="#section4-1">4.1 A little history</a></li>
+                    <li><a href="#section4-2">4.2 How does it work?</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 
-    <section>
-      <h2>Primality Check with Trial Division</h2>
-      <p>To test if a number \( n \) is prime, check divisibility up to \( \sqrt{n} \). This is effective for small numbers, but not practical for large ones.</p>
-    </section>
+    <h2 id="section1">1. Prime Numbers</h2>
+    
+    <h3 id="section1-1">1.1 Definition and basic theorems</h3>
+    
+    <p>Prime numbers have been closely studied by mathematicians ever since they were recognised. They are central to number theory due to their intriguing properties and their elusive unpredictability. First, let's ask ourselves: What are primes?</p>
+    
+    <div class="theorem-box">
+        <div class="definition">Definition 1:</div>
+        An integer $p > 1$ is called a <strong>prime</strong> if its only divisors are 1 and $p$ itself.
+    </div>
+    
+    <p>By definition, the first few primes are 2, 3, 5, 7, 11, 13. They have no divisors other than 1 and themselves. Numbers that aren't prime are called <strong>composite numbers</strong>, and are based on primes. Notice how there are infinitely many integers, and how composite numbers are made up of primes. Then we have the two most fundamental properties of primes:</p>
+    
+    <div class="theorem-box">
+        <ol>
+            <li><strong>Unique factorization</strong> (Fundamental theorem of arithmetic):
+                <br>Any integer $n > 1$ has a unique representation as a product of primes.</li>
+            <li><strong>Infinitude</strong> (Euclid's theorem):
+                <br>There are infinitely many primes.</li>
+        </ol>
+    </div>
+    
+    <p>For example, the number 75 can be written as $3 \times 5 \times 5$, or $3 \times 5^2$, where 3 and 5 are primes. The numbers 3 and 5 here are called the <strong>prime factors</strong> of 75. Notice that you can do this for all numbers, generating any combination of products of prime powers. We then have the <strong>canonical factorization</strong> of any integer $n$:</p>
+    
+    <div class="math-display">
+        $$n = p_{1}^{\alpha_1} \dotsm p_{k}^{\alpha_k}$$
+    </div>
 
-    <section>
-      <h2>Modular Arithmetic</h2>
-      <p>We say \( a \equiv b \ (\text{mod} \ m) \) if \( m \mid (a - b) \).</p>
-      <p>Example: \( 18 \equiv 2 \ (\text{mod} \ 4) \) since \( 18 = 2 + 4 \times 4 \).</p>
-      <p>If \( a \equiv b \ (\text{mod} \ m) \), then \( a^n \equiv b^n \ (\text{mod} \ m) \).</p>
-    </section>
+    <h2 id="section2">2. Primality check with trial division</h2>
+    
+    <h3 id="section2-1">2.1 Trial division</h3>
+    
+    <p>The property of being prime is called <strong>primality</strong>. Suppose you are given a random integer $n$. How would you determine if it is prime? Well first, except for 2, every even number is automatically composite, as it is divisible by 2. Any number that ends with 5 other than 5 itself also automatically fails the primality test for the same reason. From this, we have established that primes can only end with digits 1, 3, 7, and 9. Even then, suppose you are given a random integer ending with one of those four digits, how would you determine if it is prime?</p>
+    
+    <p>You might be tempted to check every integer up to $n$ and see if it divides $n$, but that is a bit superfluous. You only need to check integers up to $\sqrt{n}$, as the product of 2 factors larger than that will produce a number bigger than $n$. This is a simple check, but it is impractical for large numbers. Luckily, we developed much better tests over time, some of them being important theorems in number theory.</p>
 
-    <section>
-      <h2>Fermat’s Primality Test</h2>
-      <p>Fermat's Little Theorem: If \( p \) is prime and \( a \) is any integer, then \( a^{p-1} \equiv 1 \ (\text{mod} \ p) \).</p>
-      <p>This is used to test whether \( n \) is probably prime by checking if \( a^{n-1} \equiv 1 \ (\text{mod} \ n) \).</p>
-    </section>
+    <h2 id="section3">3. Modular arithmetic and important theorems</h2>
+    
+    <h3 id="section3-1">3.1 Modular arithmetic</h3>
+    
+    <p>Modular arithmetic is important in expressing number theory ideas. For example, saying 18 divided by 4 gives a remainder of 2 is the same as saying 18 is congruent to 2 modulo 4, or in modular notation, $18 \equiv 2 \pmod{4}$. It's like an analogue watch: you look at 2pm and you know that it's the 14th hour in the day, because $14 \equiv 2 \pmod{12}$. We consider modulo 12 for telling time, and other modulo for different purposes. More formally, we have:</p>
+    
+    <div class="theorem-box">
+        <div class="definition">Definition 2:</div>
+        Given an integer $m$ and integers $a$, $b$. We say $a$ is congruent to $b$ modulo $m$ if $m | a-b$, in which case we write $a \equiv b \pmod{m}$. Conversely, we say $a$ is not congruent to $b$ modulo $m$ and write $a \not\equiv b \pmod{m}$.
+    </div>
+    
+    <p>From the definition, we see that $a \equiv b \pmod{m}$ if and only if there exists some integer $k$ such that $a = b+km$. We also have some elementary properties:</p>
+    
+    <div class="theorem-box">
+        <ol>
+            <li>(Reflexivity) $a \equiv a \pmod{m}$.</li>
+            <li>(Commutativity) If $a \equiv b \pmod{m}$ then $b \equiv a \pmod{m}$.</li>
+            <li>(Transitivity) If $a \equiv b \pmod{m}$ and $b \equiv c \pmod{m}$ then $a \equiv c \pmod{m}$.</li>
+        </ol>
+        
+        Also, for any integer $m$ and integers $a_1, a_2,\ldots, a_m; b_1, b_2, \ldots, b_m$ such that $a_i \equiv b_i$ for all $i = 1,2, \ldots, m$, then the following holds:
+        <ol>
+            <li>$\sum_{i=1}^{m}{a_i} \equiv \sum_{i=1}^{m}{b_i} \pmod{m}$</li>
+            <li>$\prod_{i=1}^{m}{a_i} \equiv \prod_{i=1}^{m}{b_i} \pmod{m}$</li>
+        </ol>
+        
+        Also, if $a \equiv b \pmod{m}$ then $a^n \equiv b^n \pmod{n}$.
+        
+        <p>We also have an important definition: Given a positive integer $m$ and an integer $a$. An integer $b$ is called the <strong>modular inverse multiplicative</strong> of $a$ modulo $n$ if $ab \equiv 1 \pmod{n}$</p>
+    </div>
 
-    <section>
-      <h2>Prime Numbers in RSA Encryption</h2>
-      <p>Choose primes \( p \) and \( q \). Let \( n = p \times q \), and \( \lambda = (p-1)(q-1) \).</p>
-      <p>Choose \( e \) such that \( \gcd(e, \lambda) = 1 \), and compute \( d \equiv e^{-1} \ (\text{mod} \ \lambda) \).</p>
-      <p>Encryption: \( C \equiv M^e \ (\text{mod} \ n) \)<br />
-         Decryption: \( M \equiv C^d \ (\text{mod} \ n) \)</p>
-    </section>
-  </main>
+    <h3 id="section3-2">3.2 Fermat's primality test</h3>
+    
+    <p>First, we must know Fermat's little theorem, an important tool in finding primes.</p>
+    
+    <div class="theorem-box">
+        <strong>Fermat's little theorem:</strong> If $p$ is a prime, then for any integer $a$, we have $a^p - a \equiv 0 \pmod{p}$
+    </div>
+    
+    <p>However, the inverse is not true. There are composite numbers that satisfies $a^{n-1} \equiv 1 \pmod{p}$. These numbers are called <strong>Carmichael numbers</strong>, and are the sole reason why this test is not deterministic. Before going into further details about the accuracy of this test, we will first show you how it works:</p>
+    
+    <div class="algorithm-box">
+        <p><strong>Input:</strong> $n > 3$, a value to test for primality; $k$, a parameter that determines the number of times to test for primality</p>
+        <p><strong>Output:</strong> <strong>composite</strong> if $n$ is composite, otherwise <strong>probably prime</strong>.</p>
+        <p>Repeat $k$ times:</p>
+        <ol>
+            <li>Pick $a$ randomly in $[2, n-2]$</li>
+            <li>If $a^{n-1} \not\equiv 1$, return <strong>composite</strong>.</li>
+        </ol>
+        <p>Otherwise, return <strong>probably prime</strong>.</p>
+    </div>
+    
+    <p>We know that it holds trivially for $a \equiv 1 \pmod{p}$ and $a \equiv -1 \pmod{p}$, so naturally, we would pick all $1 < a < p-1$ for the least computation needed. If we have $a^{n-1} \equiv 1 \pmod{n}$, we cannot conclude that $n$ is a prime number. Any $a$ satisfying the relation above but with $n$ being composite is called a <strong>Fermat liar</strong>, and $n$ is called a <strong>Fermat pseudoprime to base $a$</strong>. If we do pick an integer $a$ such that $a^{n-1} \not\equiv 1 \pmod{n}$, then that is the <strong>Fermat's witness</strong> for the compositeness of $n$.</p>
+    
+    <div class="example">
+        <p>For example, let's check the number 221. Picking $a = 38$ from $1 < a < 220$, we see that:</p>
+        <div class="math-display">
+            $$a^{n-1} = 38^{220} \equiv 1 \pmod{221}$$
+        </div>
+        <p>Then either 221 is prime, or 38 is a Fermat liar. Taking another number $a = 24$, we have:</p>
+        <div class="math-display">
+            $$a^{n-1} = 24^{220} \equiv 81 \not\equiv 1 \pmod{221}$$
+        </div>
+        <p>Then 221 is not a prime, and 24 is the Fermat witness of the compositeness of 221.</p>
+    </div>
+    
+    <p>Given the flaws, the algorithm for Fermat's primality test can still tell us if a number is probably a prime or not.</p>
+    
+    <p>It is better than Wilson's theorem to test primality, but we can do better than this probabilistic method. Throughout the years, we have developed very reliable prime checking methods, namely the Miller-Rabin primality test, the AKS primality test, Lucas-Lehmer test (for Mersenne primes, which are primes of the form $2^n - 1$), and elliptic curve primality proving. In the list above, all but the Miller-Rabin test is deterministic, but they are all too slow for practical usage. Therefore, the Miller-Rabin test, though probabilistic, remains the most efficient prime checking method, as it strikes a balance between speed and accuracy, making it the go-to choice for generating large primes where absolute certainty is not necessary (since multiple rounds of the test drastically reduce the probability of error).</p>
 
-  <footer>
-    <p>&copy; 2025 AMICS. Built with MathJax and GitHub Pages.</p>
-  </footer>
+    <h2 id="section4">4. Prime Numbers in RSA Encryption</h2>
+    
+    <h3 id="section4-1">4.1 A little history</h3>
+    
+    <p>One of the most well-known applications of prime in the real world is the RSA - When mathematics protects your money.</p>
+    
+    <p>The RSA (Rivest - Shamir - Adleman) is an old and widely used cryptosystem invented in the 1970s. Ron Rivest, Adi Shamir and Leonard Adleman are widely regarded as the designers of the system. Their surnames are used for the name of the scheme. While a similar system was created around the same time by Clifford Cocks, it didn't gain widespread attraction and usage until Rivest, Shamir and Adleman publicly described it in 1977.</p>
+    
+    <p>To put it simply, a cryptosystem is a set of algorithms that encrypts plain texts into forms that cannot be deciphered without a key - strings of words or numbers that are used to scramble and encrypt the texts in the first place. We will be diving deeper into the way keys are made and used in RSA.</p>
+
+    <h3 id="section4-2">4.2 How does it work?</h3>
+    
+    <h4>4.2.1 Key generation and distribution</h4>
+    
+    <p>The RSA is an asymmetric cryptosystem - a cryptosystem that has 2 keys, one being public and the other being private. Fermat's Little Theorem guarantees that modular exponentiation works efficiently, even with large numbers, which is fundamental for RSA encryption and decryption.</p>
+    
+    <p>The public and private keys of the RSA are generated in the following process:</p>
+    
+    <div class="algorithm-box">
+        <ol>
+            <li>Select two prime numbers, in this article will be notated as $p$ and $q$, which will be kept secret.</li>
+            <li>Compute $n=q \cdot p$, which will be used as the modulus for both the private and public key and will be released as a part of the public key.</li>
+            <li>Compute $\lambda= (p-1)(q-1)$. Here, $\lambda$ denotes the <strong>Carmichael totient function.</strong></li>
+            <li>Choose a coprime of $\lambda$ in the range between 1 and $\lambda$, this number will be notated as $e$ and will be released as a part of the public key.</li>
+            <li>Compute $d$ as $d \equiv e^{-1} \pmod{\lambda(n)}$ - this is known as the modular multiplicative inverse of $e$ modular $\lambda(n)$.</li>
+        </ol>
+    </div>
+    
+    <p>After finished generating the public and private key, we have 2 set of numbers, $(n, e)$ is the public key and $(d)$ is the private key. To help you understand the key distribution, suppose we have 2 friends, Alice and Bob, they will exchange their public keys and keep their private key to themselves.</p>
+
+    <h4>4.2.2 Encryption and decryption</h4>
+    
+    <p>Having obtained Alice's public key, from now on will be notated as $(n_a, e_a)$, Bob can send Alice a number $K$ by first turning it a into $k$ via a process of encryption, represented by this equation:</p>
+    
+    <div class="math-display">
+        $$k\equiv K^{e_a} \pmod{n_a}$$
+    </div>
+    
+    <p>After $k$ is sent to Alice, she can decrypt the message with his private key $(d_a)$ by computing:</p>
+    
+    <div class="math-display">
+        $$K \equiv (k^{e_a})^{d_a} \pmod{n_a}$$
+    </div>
+    
+    <div class="example">
+        <p>Let's look at an example:</p>
+        <ol>
+            <li>Alice chose 2 primes $p = 5$ and $q = 11$.</li>
+            <li>He then calculated $n = 5 \cdot 11 = 55$.</li>
+            <li>Next, she computed $\lambda = (5-1)(11-1) = 40$.</li>
+            <li>After that, she chose a coprime of $\lambda$, which is $e = 3$.</li>
+            <li>Next, she calculated the modular multiplicative inverse of $e$ modulo $\lambda$, which is $d = 27$.</li>
+            <li>Now, Alice has had 2 keys, her public key, which will be sent to Bob, is (55,3) and his private key is (27).</li>
+            <li>Now if Bob wants to send him the number 13, he can encrypt the number using Alice's public key: $52 \equiv 13^3 \pmod{55}$. After the number 52 has been sent to Alice, he can then decrypt it using his private key: $52^{27} \equiv 13 \pmod{55}$.</li>
+        </ol>
+        <p>→ The information has been safely transferred to Alice.</p>
+    </div>
+
+    <h4>4.2.3 Application</h4>
+    
+    <p>The RSA, despite it being one of the oldest cryptosystems, are still in use today, working as a layer of protection in many digital schemes:</p>
+    
+    <ol>
+        <li>Digital signature</li>
+        <li>Communication protocols such as HTTP or SSH</li>
+        <li>Encrypting email messages</li>
+        <li>VPN - Virtual Private Network</li>
+        <li>Protect customer data and transaction record in banks</li>
+        <li>etc</li>
+    </ol>
+
 </body>
 </html>
