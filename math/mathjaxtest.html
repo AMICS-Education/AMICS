@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AMICS: Prime Numbers and Encryption</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1, h2 {
+      color: #1e88e5;
+    }
+    section {
+      margin-top: 2rem;
+    }
+    code {
+      background: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AMICS</h1>
+    <p>Applied Mathematics, Programming, Physics & Engineering Archive</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Prime Numbers and Encryption</h2>
+      <p><strong>Definition 1.</strong> An integer \( p > 1 \) is called a prime if its only divisors are 1 and \( p \) itself.</p>
+      <p>The number 75 can be written as \( 3 \times 5^2 \). The numbers 3 and 5 here are called the prime factors of 75.</p>
+      <p>The <strong>Fundamental Theorem of Arithmetic</strong> says that any integer \( n > 1 \) has a unique representation as a product of primes.</p>
+      <p>Euclid’s Theorem: There are infinitely many primes.</p>
+    </section>
+
+    <section>
+      <h2>Primality Check with Trial Division</h2>
+      <p>To test if a number \( n \) is prime, check divisibility up to \( \sqrt{n} \). This is effective for small numbers, but not practical for large ones.</p>
+    </section>
+
+    <section>
+      <h2>Modular Arithmetic</h2>
+      <p>We say \( a \equiv b \ (\text{mod} \ m) \) if \( m \mid (a - b) \).</p>
+      <p>Example: \( 18 \equiv 2 \ (\text{mod} \ 4) \) since \( 18 = 2 + 4 \times 4 \).</p>
+      <p>If \( a \equiv b \ (\text{mod} \ m) \), then \( a^n \equiv b^n \ (\text{mod} \ m) \).</p>
+    </section>
+
+    <section>
+      <h2>Fermat’s Primality Test</h2>
+      <p>Fermat's Little Theorem: If \( p \) is prime and \( a \) is any integer, then \( a^{p-1} \equiv 1 \ (\text{mod} \ p) \).</p>
+      <p>This is used to test whether \( n \) is probably prime by checking if \( a^{n-1} \equiv 1 \ (\text{mod} \ n) \).</p>
+    </section>
+
+    <section>
+      <h2>Prime Numbers in RSA Encryption</h2>
+      <p>Choose primes \( p \) and \( q \). Let \( n = p \times q \), and \( \lambda = (p-1)(q-1) \).</p>
+      <p>Choose \( e \) such that \( \gcd(e, \lambda) = 1 \), and compute \( d \equiv e^{-1} \ (\text{mod} \ \lambda) \).</p>
+      <p>Encryption: \( C \equiv M^e \ (\text{mod} \ n) \)<br />
+         Decryption: \( M \equiv C^d \ (\text{mod} \ n) \)</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AMICS. Built with MathJax and GitHub Pages.</p>
+  </footer>
+</body>
+</html>
