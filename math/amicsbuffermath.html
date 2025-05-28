@@ -7,244 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="app.js"></script>
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .name {
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-
-        .contact {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 0.9rem;
-            text-align: right;
-        }
-
-        .nav-container {
-            background-color: #444;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-container > a {
-            color: white;
-            text-decoration: none;
-            padding: 15px 20px;
-            display: block;
-            transition: background-color 0.3s;
-        }
-
-        .nav-container > a:hover {
-            background-color: #555;
-        }
-
-        .nav-container ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-container li {
-            position: relative;
-        }
-
-        .nav-container li > a {
-            color: white;
-            text-decoration: none;
-            padding: 15px 20px;
-            display: block;
-            transition: background-color 0.3s;
-        }
-
-        .nav-container li > a:hover {
-            background-color: #555;
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #555;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: background-color 0.3s;
-        }
-
-        .dropdown a:hover {
-            background-color: #666;
-        }
-
-        .nav-container li:hover .dropdown {
-            display: block;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            padding: 40px 0 20px 0;
-            font-size: 2.5rem;
-        }
-
-        h2 {
-            color: #444;
-            margin: 30px 0 20px 0;
-            font-size: 1.8rem;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
-        }
-
-        .math-sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px 0 40px 0;
-        }
-
-        .math-card {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 25px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .math-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        }
-
-        .math-card h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 8px;
-        }
-
-        .math-card p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .topic-links {
-            list-style: none;
-            padding: 0;
-        }
-
-        .topic-links li {
-            margin-bottom: 8px;
-        }
-
-        .topic-links a {
-            color: #007bff;
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            display: block;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .topic-links a:hover {
-            background-color: #007bff;
-            color: white;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .contact {
-                position: static;
-                margin-top: 20px;
-                text-align: center;
-            }
-
-            .nav-container {
-                flex-direction: column;
-            }
-
-            .nav-container ul {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .nav-container li {
-                width: 100%;
-            }
-
-            .dropdown {
-                position: static;
-                display: none;
-                box-shadow: none;
-                background-color: #666;
-            }
-
-            .nav-container li:hover .dropdown {
-                display: block;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .math-sections {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -300,6 +62,10 @@
                 <h3>Algebra</h3>
                 <p>Algebra is a branch of mathematics that deals with abstract systems, known as algebraic structures, and the manipulation of expressions within those systems.</p>
                 <ul class="topic-links">
+                    <li><a href="#">Linear Algebra</a></li>
+                    <li><a href="#">Abstract Algebra</a></li>
+                    <li><a href="#">Polynomial Equations</a></li>
+                    <li><a href="#">Group Theory</a></li>
                 </ul>
             </div>
 
@@ -308,6 +74,9 @@
                 <p>Number theory is a branch of pure mathematics devoted primarily to the study of the integers and arithmetic functions.</p>
                 <ul class="topic-links">
                     <li><a href="https://amics-education.github.io/AMICS//math/primenumbers.html?fbclid=IwY2xjawKirO1leHRuA2FlbQIxMABicmlkETFvU1BLeGpJdmdCQVc4TVdhAR7ZkNzXhhAPqd4xcNrGQGY2FWwZUTwRO1C8I-xU-7GvJcSrv9CNu4iA12Jp0g_aem_EWF06i9N2MpZySFy9rohnA" target="_blank">Prime Numbers</a></li>
+                    <li><a href="#">Divisibility</a></li>
+                    <li><a href="#">Modular Arithmetic</a></li>
+                    <li><a href="#">Diophantine Equations</a></li>
                 </ul>
             </div>
 
@@ -315,6 +84,10 @@
                 <h3>Combinatorics</h3>
                 <p>Combinatorics is an area of mathematics primarily concerned with counting, both as a means and as an end to obtaining results, and certain properties of finite structures.</p>
                 <ul class="topic-links">
+                    <li><a href="#">Permutations</a></li>
+                    <li><a href="#">Combinations</a></li>
+                    <li><a href="#">Graph Theory</a></li>
+                    <li><a href="#">Counting Principles</a></li>
                 </ul>
             </div>
 
@@ -322,6 +95,10 @@
                 <h3>Calculus</h3>
                 <p>Calculus is the mathematical study of continuous change, in the same way that geometry is the study of shape, and algebra is the study of generalizations of arithmetic operations.</p>
                 <ul class="topic-links">
+                    <li><a href="#">Limits</a></li>
+                    <li><a href="#">Derivatives</a></li>
+                    <li><a href="#">Integrals</a></li>
+                    <li><a href="#">Differential Equations</a></li>
                 </ul>
             </div>
         </div>
