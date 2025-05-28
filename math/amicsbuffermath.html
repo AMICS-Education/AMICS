@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMICS: Applied Math, Programming, Physics & Engineering</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #668bab 0%, #416788 100%);
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .name a {
+      color: white;
+      text-decoration: none;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .name p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-top: 8px;
+      font-size: 1.1rem;
+    }
+
+    main {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .subject-card {
+      background: linear-gradient(180deg, #cf4d6f, #742037);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(180deg, #cf4d6f, #742037);
+    }
+
+    .subject-card h3 {
+      color: white;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .subject-card p {
+      color: white;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .subjects-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="name">
+      <a href="https://www.facebook.com/profile.php?id=61565505852462">AMICS&copy;</a>
+      <p>Applied Mathematics, Programming, Physics & Engineering Archive</p>
+      <a>Math Archives</a>
+    </div>
+  </header>
+  
+
+
+  <main>
+    <div class="subjects-grid">
+      <div class="subject-card math">
+        <div class="icon-container">
+          <div class="book"></div>
+        </div>
+        <h3>Algebra</h3>
+        <p style="color: rgba(255,255,255,0.8);">Algebra is a branch of mathematics that deals with abstract systems, known as algebraic structures, and the manipulation of expressions within those systems.</p>
+      </div>
+
+    <div class="subjects-grid">
+      <div class="subject-card math" onclick="window.open('https://amics-education.github.io/AMICS//math/primenumbers.html?fbclid=IwY2xjawKirO1leHRuA2FlbQIxMABicmlkETFvU1BLeGpJdmdCQVc4TVdhAR7ZkNzXhhAPqd4xcNrGQGY2FWwZUTwRO1C8I-xU-7GvJcSrv9CNu4iA12Jp0g_aem_EWF06i9N2MpZySFy9rohnA', '_blank')">
+        <div class="icon-container">
+          <div class="book"></div>
+        </div>
+        <h3>Number Theory</h3>
+        <p style="color: rgba(255,255,255,0.8);">Number theory is a branch of pure mathematics devoted primarily to the study of the integers and arithmetic functions</p>
+      </div>
+    <div class="subjects-grid">
+      <div class="subject-card math">
+        <div class="icon-container">
+          <div class="book"></div>
+        </div>
+        <h3>Combinatorics</h3>
+        <p style="color: rgba(255,255,255,0.8);">Combinatorics is an area of mathematics primarily concerned with counting, both as a means and as an end to obtaining results, and certain properties of finite structures.</p>
+      </div>     
+    <div class="subjects-grid">
+      <div class="subject-card math">
+        <div class="icon-container">
+          <div class="book"></div>
+        </div>
+        <h3>Calculus</h3>
+        <p style="color: rgba(255,255,255,0.8);">Calculus is the mathematical study of continuous change, in the same way that geometry is the study of shape, and algebra is the study of generalizations of arithmetic operations.</p>
+      </div>  
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AMICS. Built with GitHub Pages.</p>
+  </footer>
+</body>
+</html>
