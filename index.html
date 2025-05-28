@@ -97,6 +97,36 @@
       justify-content: center;
     }
 
+    .subject-card.math {
+    background: rgba(254, 6, 6, 0.793);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    }
+    .subject-card.math:hover {
+    background: rgba(254, 6, 6, 0.793);
+    }
+
+    .subject-card.physics {
+    background: rgba(118, 0, 136, 0.866);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    }
+    .subject-card.physics:hover {
+    background: rgba(118, 0, 136, 0.866);
+    }
+        .subject-card.compsci {
+    background: rgb(13, 109, 0);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    }
+    .subject-card.compsci:hover {
+    background: rgb(13, 109, 0);
+    }
+        .subject-card.engineering {
+    background: rgba(255, 128, 44, 0.925);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    }
+    .subject-card.engineering:hover {
+    background: rgba(255, 128, 44);
+    }
+
     .subject-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -307,7 +337,7 @@
 
   <main>
     <div class="subjects-grid">
-      <div class="subject-card" onclick="window.open('https://amics-education.github.io/AMICS//math/primenumbers.html?fbclid=IwY2xjawKirO1leHRuA2FlbQIxMABicmlkETFvU1BLeGpJdmdCQVc4TVdhAR7ZkNzXhhAPqd4xcNrGQGY2FWwZUTwRO1C8I-xU-7GvJcSrv9CNu4iA12Jp0g_aem_EWF06i9N2MpZySFy9rohnA', '_blank')">
+      <div class="subject-card math" onclick="window.open('https://amics-education.github.io/AMICS//math/primenumbers.html?fbclid=IwY2xjawKirO1leHRuA2FlbQIxMABicmlkETFvU1BLeGpJdmdCQVc4TVdhAR7ZkNzXhhAPqd4xcNrGQGY2FWwZUTwRO1C8I-xU-7GvJcSrv9CNu4iA12Jp0g_aem_EWF06i9N2MpZySFy9rohnA', '_blank')">
         <div class="icon-container">
           <div class="book"></div>
         </div>
@@ -315,7 +345,7 @@
         <p style="color: rgba(255,255,255,0.8);">Explore mathematical concepts, equations, and problem-solving techniques</p>
       </div>
 
-      <div class="subject-card">
+      <div class="subject-card physics">
         <div class="icon-container">
           <div class="ball"></div>
         </div>
@@ -323,7 +353,7 @@
         <p style="color: rgba(255,255,255,0.8);">Discover the fundamental laws that govern our universe</p>
       </div>
 
-      <div class="subject-card">
+      <div class="subject-card compsci">
         <div class="icon-container">
           <div class="laptop"></div>
         </div>
@@ -331,7 +361,7 @@
         <p style="color: rgba(255,255,255,0.8);">Learn programming, algorithms, and computational thinking</p>
       </div>
 
-      <div class="subject-card">
+      <div class="subject-card engineering">
         <div class="icon-container">
           <div class="gears">
             <div class="gear gear1"></div>
