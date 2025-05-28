@@ -1,0 +1,245 @@
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    background: #ebebf4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #274767;
+    color: rgb(187, 219, 250);
+    padding: 1rem 0.5rem;
+    text-align: left;
+}
+
+header a {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: rgb(187, 219, 250);
+}
+
+header p {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+.name {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 80%;
+    height: 10%;
+}
+.contact{
+    position: absolute;
+    left:1200px;
+    top:20px
+}
+
+.nav-container {
+    display: flex;
+    background-color: #013c6f;
+    gap: 100px;
+    padding: 0 200px;
+    align-items: center;
+}
+
+.nav-container > a,
+.nav-container ul li a {
+    color: #ffffff;
+    font-size: large;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.nav-container > a:hover,
+.nav-container ul li a:hover {
+    background-color: #1565c0;
+}
+
+.nav-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 100px;
+}
+
+.nav-container li {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 150px;
+    background-color: #013c6f;
+    z-index: 10;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown a {
+    color: rgb(187, 219, 250);
+    background-color: #1565c0;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    text-align: left;
+}
+
+.dropdown a:hover {
+    background-color: #1e88e5;
+}
+
+.nav-container li:hover .dropdown {
+    display: block;
+}
+
+main {
+    padding: 20px;
+    min-height: calc(100vh - 200px); /* Ensure main takes enough height to push footer down */
+}
+
+.folder {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(117, 117, 117, 0.05);
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.folder h2 {
+    margin-top: 0;
+    color: #1e88e5;
+}
+
+a {
+    color: #1565c0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    padding-left: 1.2rem;
+}
+main h1{
+    text-align: center;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid #ebebf4; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #ebebf4; }
+}
+
+.Introduction {
+    display: flex;
+    padding: 20px;
+    width: 500px;
+    height: 200px;
+    background-color: rgb(13, 79, 126);
+    opacity: 0.8;
+    color: #ffffff;
+}
+
+img {
+    position: absolute;
+    top: 320px;
+    left: 800px;
+    height: 40%;
+    width: 40%;
+}
+
+.What {
+    text-align: center;
+}
+
+
+.mission {
+    display: flex;
+    flex-wrap: wrap; /* Allow columns to wrap to next row */
+    gap: 30px;
+    margin-bottom: 2rem; /* Add space before footer to prevent overlap */
+    margin-left: 200px;
+}
+
+.Column1,
+.Column2,
+.Column3,
+.Column4 {
+    display: flex;
+    padding: 5px;
+    width: 100%; /* Allow full width when wrapped */
+    max-width: 500px; /* Limit max width to original design */
+    height: 200px; /* Keep original height */
+    background-color: rgb(13, 79, 126);
+    opacity: 0.8;
+    color: #ffffff;
+    justify-content:center;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+footer {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: #274767;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: rgb(187, 219, 250);
+}
+.hidden {
+    opacity: 0;
+    transform: translateY(20px); /* Optional slide effect */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.mission > div:hover {
+    animation-name: erect;
+    animation-duration: 0.5s;
+}
+
+@keyframes erect{
+    from{
+        transform: scale(100%);
+    }
+    to{
+        transform:scale(107%);
+        border-radius: 10%;
+        opacity:1;
+    }
+}
