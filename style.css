@@ -239,6 +239,73 @@ footer {
     }
     to{
         transform:scale(107%);
+
+@media (max-width: 480px) {
+            .name {
+                font-size: 1.6rem;
+            }
+
+            header {
+                padding: 15px 0;
+            }
+
+            header p {
+                font-size: 0.9rem;
+                padding: 0 15px;
+            }
+
+            .contact {
+                font-size: 0.7rem;
+            }
+
+            .nav-container > a,
+            .nav-container li > a {
+                padding: 10px 0;
+                font-size: 0.9rem;
+            }
+
+            main {
+                margin: 15px 5px;
+                padding: 0 10px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                padding: 15px 0 10px 0;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+                margin: 15px 0 10px 0;
+            }
+
+            .Introduction p {
+                font-size: 0.9rem;
+                padding: 0 5px;
+            }
+
+            .mission {
+                gap: 15px;
+                padding: 10px 0 20px 0;
+            }
+
+            .mission div {
+                padding: 12px;
+            }
+
+            .mission p {
+                font-size: 0.85rem;
+            }
+
+            .mission strong {
+                font-size: 1rem;
+            }
+
+            img {
+                max-width: 120px;
+                margin: 10px auto;
+            }
+        }
         border-radius: 10%;
         opacity:1;
     }
