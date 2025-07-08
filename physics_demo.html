@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMICS</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <header>
+        <a href="https://amics-education.github.io/AMICS/index.html" class="name">AMICS©</a>
+        <p>Applied Mathematics, Programming, Physics & Engineering Archive</p>
+        <div class="contact">CONTACT US: <br>
+            Email: amicspagecontact@gmail.com <br>
+            Facebook: AMICS <br>
+            Phone: 0909090909
+        </div>
+    </header>
+    <script>
+    window.MathJax = {
+      tex: {
+        macros: {
+          dd: "\\mathrm{d}",
+          lcm: "\\operatorname{lcm}",
+          diff: ["{\\mathrm{d}^{#1}#2}", 2, ""]  // handles \diff or \diff[n]{x}
+        }
+      }
+    };
+    </script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript">
+    </script>
+    <div class="nav-container">
+        <a href="#">About Us</a>
+        <ul>
+            <li>
+                <a href="#">Math</a>
+                <div class="dropdown">
+                    <a href="https://amics-education.github.io/AMICS//math/amicsbuffermath.html">Theory</a>
+                    <a href="#">Practice</a>
+                </div>
+            </li>
+            <li>
+                <a href="#">Computer Science</a>
+                <div class="dropdown">
+                    <a href="#">Theory</a>
+                    <a href="#">Practice</a>
+                </div>
+            </li>
+            <li>
+                <a href="#">Physics</a>
+                <div class="dropdown">
+                    <a href="#">Theory</a>
+                    <a href="#">Practice</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <main>
+        <header id="title-block-header">
+        <h1 class="title">Physics Notes</h1>
+        <p class="author">Avid David</p>
+        <p class="date">1970-01-01</p>
+        </header>
+        <h1 id="mechanics">Mechanics</h1>
+        <h3 id="motion-in-one-dimension">Motion in One Dimension</h3>
+        <p>The study of motion without external agents is called kinematics.
+        There are three main types of motion: translational, rotational, and
+        vibrational. For simplicity’s sake, we are going to treat objects as
+        particles: they have mass, but are infinitesimally small.</p>
+        <h4 class="unnumbered" id="position-velocity-and-speed">Position,
+        Velocity, and Speed</h4>
+        <p>A particle’s position is its location relative to a reference point.
+        Its displacement is defined as the change in position in some time
+        interval. As the particle moves from <span
+        class="math inline">\(x_1\)</span> to <span
+        class="math inline">\(x_2\)</span>, its displacement is: <span
+        class="math display">\[\Delta x = x_2 - x_1\]</span></p>
+        <p>The Greek character <span class="math inline">\(\Delta\)</span>
+        (Delta) generally means <em>difference</em>. We also have the concept of
+        velocity, which is the change in position with respect to time.
+        Mathematically, that is: <span class="math display">\[v_{x,\text{avg}} =
+        \dfrac{\Delta x}{\Delta t}\]</span></p>
+        <p>This is the average velocity over a period of time. We can see that
+        its sign depends on the displacement, because <span
+        class="math inline">\(t &gt; 0\)</span>. But there’s also speed, which
+        depends on distance, so it’s always positive: <span
+        class="math display">\[v_{\text{avg}} = \dfrac{d}{\Delta t}\]</span></p>
+        <div class="important">
+        <ul>
+        <li><p>Displacement is a vector quantity, but distance is a scalar
+        quantity.</p></li>
+        <li><p>Velocity is a vector quantity, but speed is a scalar
+        quantity.</p></li>
+        </ul>
+        </div>
+        <h4 class="unnumbered"
+        id="instantaneous-velocity-and-speed">Instantaneous Velocity and
+        Speed</h4>
+        <p>This is where calculus jumps in. We take the limit as the intervals
+        of time go to zero, and we acquire: <span class="math display">\[v_x =
+        \lim_{\Delta t \rightarrow 0} \dfrac{\Delta x}{\Delta t} =
+        \dfrac{\dd x}{\dd t}\]</span></p>
+        <div class="concept">
+        <p><em>The derivative of displacement with respect to time is
+        velocity.</em></p>
+        </div>
+        <h4 class="unnumbered"
+        id="analysis-models-the-particle-under-constant-velocity">Analysis
+        Models: The Particle Under Constant Velocity</h4>
+        <p>We’ll try to describe the particle. We know that the velocity is
+        constant, so the only thing to find out here is its displacement.
+        Luckily, this is simple. Rearranging (2) gives: <span
+        class="math display">\[x_2 = x_1 + v_x t\]</span> These analysis models
+        get tougher over time.</p>
+        <h4 class="unnumbered" id="acceleration">Acceleration</h4>
+        <p>Analogously, we define acceleration as the change in velocity over
+        time. Then we have the equation of average acceleration: <span
+        class="math display">\[a_{x, \text{avg}} = \dfrac{\Delta v_x}{\Delta
+        t}\]</span> and similarly, the instantaneous acceleration: <span
+        class="math display">\[a_x = \lim_{\Delta t\rightarrow 0} \dfrac{\Delta
+        v_x}{\Delta t} = \dfrac{\dd v}{\dd t}\]</span></p>
+        <div class="concept">
+        <p><em>The derivative of velocity with respect to time is
+        acceleration.</em></p>
+        </div>
+        <p>In 1D kinematics, if the velocity and acceleration are pointing in
+        the same direction, then the object is speeding up and vice versa.</p>
+        <h4 class="unnumbered" id="the-particle-under-constant-acceleration">The
+        Particle Under Constant Acceleration</h4>
+        <p>Let’s tackle the most simple case. Because acceleration is the
+        derivative of velocity, so if it’s a constant, then the velocity changes
+        linearly. We can write: <span class="math display">\[v_{x_2} = v_{x_1} +
+        a_x t\]</span> And if velocity is a linear function, then that means
+        displacement will be a quadratic. Integrating both sides give: <span
+        class="math display">\[x_2 = x_1 + v_{x_1} t + \dfrac{1}{2}a_x
+        t^2\]</span> We can even extract velocity as a function of position. We
+        know: <span class="math display">\[v_{x_2} = v_{x_1} + a_x t\]</span>
+        <span class="math display">\[x_2 = x_1 + \left( \dfrac{v_{x_1} +
+        v_{x_2}}{2}\right) t\]</span> Substitute <span
+        class="math inline">\(t\)</span> in gives: <span
+        class="math display">\[x_2 - x_1 =  \dfrac{(v_{x_1} + v_{x_2})(v_{x_2} -
+        v_{x_1})}{2a_x}\]</span> And we have the final form: <span
+        class="math display">\[v_{x_2}^2 - v_{x_1}^2 = 2a_x d\]</span></p>
+        <div class="insight">
+        <p>We have 4 important equations:</p>
+        <ol>
+        <li><p><span class="math inline">\(v_{x_2} = v_{x_1} + a_x
+        t\)</span></p></li>
+        <li><p><span class="math inline">\(x_2 = x_1 + \left( \dfrac{v_{x_1} +
+        v_{x_2}}{2}\right) t\)</span></p></li>
+        <li><p><span class="math inline">\(x_2 = x_1 + v_{x_1} t +
+        \dfrac{1}{2}a_x t^2\)</span></p></li>
+        <li><p><span class="math inline">\(v_{x_2}^2 - v_{x_1}^2 = 2a_x
+        d\)</span></p></li>
+        </ol>
+        </div>
+        <h4 class="unnumbered" id="free-fall">Free Fall</h4>
+        <p>In free fall, objects undergo constant acceleration <span
+        class="math inline">\(g \approx 9.8 \mathrm{m/s^2}\)</span>, and
+        starting velocity <span class="math inline">\(v_{x_1} = 0\)</span>. Then
+        we have a series of equations:</p>
+        <ul>
+        <li><p><span class="math inline">\(v = gt\)</span></p></li>
+        <li><p><span class="math inline">\(t =
+        \sqrt{\dfrac{2h}{g}}\)</span></p></li>
+        <li><p><span class="math inline">\(v_{\text{final}} =
+        \sqrt{2gh}\)</span></p></li>
+        </ul>
+        <h3 id="vectors">Vectors</h3>
+        <p>Vectors are born because we need to study quantities that have both
+        magnitude and direction. To describe them mathematically, we employ the
+        use of coordinate systems.</p>
+        <h4 class="unnumbered" id="coordinate-systems">Coordinate Systems</h4>
+        <p>In 2D, there are 2 main types of coordinate systems: The Cartesian
+        system <span class="math inline">\((x,y)\)</span> and the polar system
+        <span class="math inline">\((r,\theta)\)</span>. It’s worth knowing that
+        <span class="math inline">\(r = \sqrt{x^2 + y^2}\)</span> and <span
+        class="math inline">\(\theta = \arctan{\dfrac{y}{x}}\)</span>.</p>
+        <h4 class="unnumbered" id="vector-and-scalar-quantities">Vector and
+        Scalar Quantities</h4>
+        <p>It’s all about if the quantities are directional or not.</p>
+        <div class="concept">
+        <ul>
+        <li><p>A <strong>scalar quantity</strong> is completely specified by a
+        single value with an appropriate unit and has no direction.</p></li>
+        <li><p>A <strong>vector quantity</strong> is completely specified by a
+        number and appropriate units plus a direction.</p></li>
+        </ul>
+        </div>
+        <p>We denote a vector as boldface characters, like <span
+        class="math inline">\(\mathbf{A}\)</span>, or <span
+        class="math inline">\(\vec{a}\)</span>. Their magnitude is given by
+        <span class="math inline">\(|\mathbf{A}|\)</span> or <span
+        class="math inline">\(|\vec{a}|\)</span></p>
+        <h4 class="unnumbered" id="some-properties-of-vectors">Some Properties
+        of Vectors</h4>
+        <p>They obey commutativity and associativity under addition. The
+        negative of a vector <span class="math inline">\(\mathbf{A}\)</span> is
+        <span class="math inline">\(\mathbf{-A}\)</span>, and their sum is 0.
+        The negative vector has the same magnitude, but it points in the
+        opposite direction.</p>
+        <p>Subtracting <span class="math inline">\(\mathbf{A - B}\)</span> is
+        the same as <span class="math inline">\(\mathbf{A + (-B)}\)</span>. When
+        multiplying a vector by a scalar, only the magnitude changes. The
+        direction stays the same.</p>
+        <h4 class="unnumbered"
+        id="components-of-a-vector-and-unit-vectors">Components of a Vector and
+        Unit Vectors</h4>
+        <p>We can split a vector along the chosen axes. Writing <span
+        class="math inline">\(\mathbf{A} = \mathbf{A}_x + \mathbf{A}_y\)</span>
+        and <span class="math inline">\(\mathbf{B} = \mathbf{B}_x +
+        \mathbf{B}_y\)</span>, we can quickly calculate the resultant vector:
+        <span class="math inline">\(\mathbf{R} = (\mathbf{A+B})_x +
+        (\mathbf{A+B})_y\)</span>. The resultant magnitude and direction are
+        obtained similarly to how we convert from Cartesian to polar.</p>
+        <p>More commonly, we see people write unit vectors: <span
+        class="math display">\[\mathbf{A} = x\mathbf{\vec{i}} +
+        y\mathbf{\vec{j}} + z\mathbf{\vec{k}}\]</span></p>
+        <p>They’re essentially splitting the vectors into its components and
+        making sure that the magnitude is 1.</p>
+        <h3 id="motion-in-two-dimensions">Motion in Two Dimensions</h3>
+        <p>Now that we have the tools for 2D kinematics, we can study motion in
+        two dimensions by splitting the vectors of motion into their components
+        along the <span class="math inline">\(x\)</span> and <span
+        class="math inline">\(y\)</span> axes, therefore reducing the complexity
+        back to 1D (in some sense).</p>
+        <h4 class="unnumbered"
+        id="the-position-velocity-and-acceleration-vectors">The Position,
+        Velocity and Acceleration Vectors</h4>
+        <p>Let’s describe the position of a particle as a vector <span
+        class="math inline">\(\mathbf{\vec{r}}\)</span>, drawn from the origin
+        to the particles position in the coordinate plane. Then we define the
+        velocity vector <span class="math inline">\(\mathbf{\vec{v}}\)</span>
+        and as per the formulae established earlier, we have: <span
+        class="math display">\[\mathbf{\vec{v}} =
+        \dfrac{\Delta\mathbf{\vec{r}}}{\Delta t}\]</span> Because time is a
+        scalar quantity, we deduce that velocity is a vector quantity directed
+        along <span class="math inline">\(\Delta \mathbf{\vec{r}}\)</span>.</p>
+        <div class="confusion">
+        <p>Remember, the velocity is independent of the path taken, as it only
+        takes into account the displacement between the final and initial
+        position. The speed, however, is calculated by the total length of the
+        path divided over time.</p>
+        </div>
+        <p>Instantaneous velocity and acceleration is defined analogously, only
+        this time we are dealing with vector-valued functions.</p>
+        <h4 class="unnumbered"
+        id="two-dimensional-motion-with-constant-acceleration">Two-Dimensional
+        Motion with Constant Acceleration</h4>
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"95bd619b8d073e1f","version":"2025.6.2","r":1,"token":"0357a45f23a943f08700f7f9af191ee6","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+    </main>
+    <footer>
+        © 2025 AMICS. Built with GitHub Pages.
+    </footer>
+</body>
+</html>
