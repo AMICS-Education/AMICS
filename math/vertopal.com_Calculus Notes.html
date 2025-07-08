@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Avid David" />
+  <meta name="dcterms.date" content="1970-01-01" />
+  <title>Calculus Notes</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: 'CMU Serif', sans-serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+      <style>
+    .concept, .insight, .confusion, .important {
+      border-left: 5px solid;
+      padding: 1em;
+      margin: 1em 0;
+      border-radius: 8px;
+    }
+
+    .concept {
+      border-color: #4a90e2;
+      background: #e6f2ff;
+    }
+
+    .insight {
+      border-color: #4caf50;
+      background: #e8f5e9;
+    }
+
+    .confusion {
+      border-color: #f44336;
+      background: #ffebee;
+    }
+
+    .important {
+      border-color: #ff9800;
+      background: #fff3e0;
+    }
+
+    .box-title {
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+  </style>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        macros: {
+          dd: "\\mathrm{d}",
+          lcm: "\\operatorname{lcm}"
+        }
+      }
+    };
+  </script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Calculus Notes</h1>
+<p class="author">Avid David</p>
+<p class="date">1970-01-01</p>
+</header>
+<h1 id="integral-calculus-in-one-variable">Integral Calculus in One
+Variable</h1>
+<h3 id="indefinite-integrals">Indefinite Integrals</h3>
+<h4 id="integral-of-a-function">Integral of a function</h4>
+<p>The integral is the inverse of the derivative operator. Given a
+function <span class="math inline">\(f(x)\)</span>, we can find a
+function <span class="math inline">\(F(x)\)</span> such that <span
+class="math inline">\(F&#39;(x) = f(x)\)</span>. The integral of a
+function is not unique, as for each <span
+class="math inline">\(f(x)\)</span>, <span class="math inline">\(F(x) +
+C\)</span> is also an integral of that function.</p>
+<div class="concept">
+<p>Both the derivative and the integral are linear operators, so we
+have: <span class="math display">\[\int [\alpha f(x) + \beta g(x) ]\dd x
+= \alpha \int f(x)\dd x + \beta \int g(x) \dd x\]</span></p>
+</div>
+<h4 id="ways-to-calculate-indefinite-integrals">Ways to calculate
+indefinite integrals</h4>
+<ol>
+<li><p><strong>Expansion</strong></p>
+<p>We use the linearity rule to turn a complicated integral into the sum
+of many simpler ones, then calculate one by one.</p></li>
+<li><p><strong>Changing the differential expression (<span
+class="math inline">\(u\)</span>-substitution)</strong></p>
+<p>If <span class="math inline">\(\displaystyle{\int f(x) \dd x = F(x) +
+C}\)</span> then <span class="math inline">\(\displaystyle{\int f(u) \dd x
+= F(u) + C}\)</span>, where <span class="math inline">\(u =
+u(x)\)</span> is a continuously differentiable function. Then, we can
+change the integrand <span class="math inline">\(g(x)\dd x\)</span>
+into: <span class="math display">\[g(x) = f(u(x))u&#39;(x) \dd
+x\]</span> Then the integral turns into: <span
+class="math display">\[\int g(x) \dd x = \int f(u(x))u&#39;(x) \dd x =
+\int f(u(x)) \dd u = F(u) + C\]</span></p>
+<div class="insight">
+<p>In the simple case <span class="math inline">\(u = ax+b\)</span>, we
+have <span class="math inline">\(\dd u = a \dd x\)</span>. Then if <span
+class="math inline">\(\displaystyle{\int f(x) \dd x = F(x) + C}\)</span>
+then: <span class="math display">\[\int f(ax+b) \dd x  = \dfrac{1}{a}
+F(ax+b) +C\]</span></p>
+</div></li>
+<li><p><strong>Change of variables</strong> Consider the integral <span
+class="math inline">\(\displaystyle{I = \int f(x) \dd x}\)</span>, where
+<span class="math inline">\(f(x)\)</span> is a continuous function. We
+can change <span class="math inline">\(f(x)\)</span> such that we work
+with functions with known or easier antiderivatives:</p>
+<ol>
+<li><p><strong>Change of variables type 1:</strong></p>
+<p>Let <span class="math inline">\(x = \varphi(t)\)</span>, where <span
+class="math inline">\(\varphi(t)\)</span> is a monotonic and
+continuously differentiable function. Then: <span
+class="math display">\[I = \int f(x) \dd x = \int
+f[\varphi(t)]\varphi&#39;(t) \dd t\]</span> Denote the antiderivative of
+<span class="math inline">\(g(t) = f[\varphi(t)]\varphi&#39;(t)\)</span>
+as <span class="math inline">\(G(t)\)</span> and <span
+class="math inline">\(h(x)\)</span> as the inverse of <span
+class="math inline">\(x = \varphi (t)\)</span>, we then have: <span
+class="math display">\[\int g(t) \dd t = G(t) + C \Rightarrow I =
+G[h(x)] + C\]</span></p></li>
+<li><p><strong>Change of variables type 2:</strong></p>
+<p>Let <span class="math inline">\(t = \psi(x)\)</span>, where <span
+class="math inline">\(\psi(x)\)</span> is a continuously differentiable
+function and we can write <span class="math inline">\(f(x) =
+g[\psi(x)]\psi &#39; (x)\)</span>. Then: <span class="math display">\[I
+= \int f(x) \dd x = \int g[\psi(x)]\psi&#39;(x) \dd x\]</span></p>
+<p>Denote the antiderivative of <span
+class="math inline">\(g(t)\)</span> as <span
+class="math inline">\(G(t)\)</span>, then: <span
+class="math display">\[I = G[\psi(x)] + C\]</span></p>
+<div class="important">
+<p>Remember to change back to the original variable!</p>
+</div></li>
+</ol></li>
+<li><p><strong>Integration by parts</strong> Let <span
+class="math inline">\(u = u(x)\)</span> and <span
+class="math inline">\(v = v(x)\)</span> be continuously differentiable
+functions. We know: <span class="math display">\[\dd (uv) = u \dd v + v
+\dd u \Rightarrow \int \dd (uv) = \int u \dd v + v \dd u\]</span> Then
+we have the following formula: <span class="math display">\[\int u \dd v
+= uv - \int v \dd u\]</span> Consider the integral <span
+class="math inline">\(I = \displaystyle{\int f(x) \dd x}\)</span> We need
+to express: <span class="math display">\[f(x) \dd x = [g(x)h(x)]\dd x =
+g(x) [h(x) \dd x] = u \dd v\]</span> then apply the integration by parts
+formula to <span class="math inline">\(u = g(x)\)</span>, <span
+class="math inline">\(v = \displaystyle{h(x) \dd x}\)</span></p></li>
+</ol>
+<h4 id="integral-of-rational-functions">Integral of rational
+functions</h4>
+<p>A rational function is one with the form <span
+class="math inline">\(f(x) = \dfrac{P(x)}{Q(x)}\)</span>, where <span
+class="math inline">\(P(x)\)</span> and <span
+class="math inline">\(Q(x)\)</span> are polynomials in <span
+class="math inline">\(x\)</span>. If <span class="math inline">\(\deg
+P(x) &lt; \deg Q(x)\)</span> then it’s called a <em>true rational
+function.</em></p>
+<p>Using polynomial division, we can rewrite any rational function:
+<span class="math display">\[f(x) = H(x) +
+\dfrac{r(x)}{Q(x)}\]</span></p>
+<p>The integral of <span class="math inline">\(H(x)\)</span> can easily
+be computed. As for the true rational function <span
+class="math inline">\(\dfrac{r(x)}{Q(x)}\)</span>, we will use partial
+fractions to decompose it into four simpler types of functions. First,
+using the method of Undetermined Coefficients, we can write <span
+class="math inline">\(Q(x)\)</span> as the product of linear polynomials
+and quadratic polynomials with no real roots: <span
+class="math display">\[Q(x) = \prod_{k = 1}^{n}(x-a_k)^{\alpha_k}
+\prod_{k=1}^{n}(x^2+p_kx + q_k)^{\beta_k}\]</span> Note that this can
+always be achieved as per the Fundamental Theorem of Algebra. Then, we
+just need to compute the following four types of integrals:</p>
+<div class="insight">
+<ol>
+<li><p><span class="math inline">\(\displaystyle{\int \dfrac{A}{x-a} \dd
+x}\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle{\int \dfrac{A}{(x-a)^k}
+\dd x} \quad (k \geq 2)\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle{\int \dfrac{Mx+N}{x^2 +
+px + q}\dd x}\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle{\int \dfrac{Mx+N}{(x^2 +
+px + q)^m}\dd x \quad (m \geq 2)}\)</span></p></li>
+</ol>
+</div>
+<p>These integrals cover all cases because any partial fraction
+decomposition over <span class="math inline">\(\mathbb{R}\)</span>
+involves repeated linear factors and irreducible quadratic factors,
+possibly raised to powers. The first two ones are simple:</p>
+<ol>
+<li><p><span class="math inline">\(\displaystyle{\int \dfrac{A}{x-a}\dd x
+= A\ln|x-a| + C}\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle{\int
+\dfrac{A}{(x-a)^k}\dd x = A\int (x-a)^{-k} =
+\dfrac{-A}{(k-1)(x-a)^{k-1}} \quad (k \geq 2)}\)</span></p></li>
+</ol>
+<p>The third one is a bit more complicated: we need to use a clever
+substitution, inspired by completing the square, to bring it back to
+familiar forms:</p>
+<p>Let <span class="math inline">\(a = \sqrt{q-\dfrac{p^2}{4}}\)</span>
+and <span class="math inline">\(t = x + \dfrac{p}{2}\)</span>, the
+integral becomes: <span class="math display">\[\begin{aligned}
+        \int \dfrac{Mx+N}{x^2 + px + q}\dd x &amp; =  \int \dfrac{Mt +
+(N - \frac{Mp}{2})}{t^2 + a^2} \dd t \\
+        &amp; = M \int \dfrac{t}{t^2 + a^2} \dd t
++  \left(N-\frac{Mp}{2} \right) \int \dfrac{1}{t^2 + a^2} \dd t
+    
+\end{aligned}\]</span> For the first integral, substitute in <span
+class="math inline">\(u = t^2\)</span> and we have a logarithm. For the
+second one, divide both the numerator and the denominator by <span
+class="math inline">\(a^2\)</span> then substitute <span
+class="math inline">\(u = \dfrac{t}{a}\)</span>, we yield the inverse
+tangent. Then the integral is simply: <span class="math display">\[\int
+\dfrac{Mx+N}{x^2 + px + q}\dd x = \dfrac{M}{2}\ln(x^2 + px+ q) +
+\dfrac{2N - Mp}{\sqrt{4q-p^2}}\arctan \dfrac{2x+p}{\sqrt{4q -p^2}} +
+C\]</span></p>
+<p>Before moving on to solve the last integral, let’s review a bit of
+complex numbers:</p>
+<div class="concept">
+<p>Some important (and beautiful) formulas:: <span
+class="math display">\[\begin{aligned}
+        \textbf{Euler&#39;s Formula:}\quad &amp; e^{ix} = \cos x + i
+\sin x \\
+        \textbf{De Moivre&#39;s Formula:} \quad &amp; (\cos x + i\sin
+x)^n = \cos nx + i \sin nx
+        
+\end{aligned}\]</span></p>
+</div>
+<p>We will prove it using ODEs. Let <span class="math inline">\(f(x) =
+e^x\)</span> and <span class="math inline">\(g(x) = \cos x + i \sin
+x\)</span>. We know: <span class="math display">\[\begin{aligned}
+        f&#39;(x) &amp; = ie^{ix} = if(x) \\
+        g&#39;(x) &amp; = -\sin x + i\cos x = ig(x)
+    
+\end{aligned}\]</span></p>
+<p>And also the initial values: <span class="math display">\[f(0) = g(0)
+= 1\]</span> By uniqueness of solutions to first-order linear ODEs,
+Euler’s formula is proven. By substituting <span
+class="math inline">\(f(nx) = g(nx)\)</span>, De Moivre’s formula is
+proven. Then we have:</p>
+<div class="insight">
+<ul>
+<li><p><span class="math inline">\(\cos x = \Re(e^{ix}) = \dfrac{e^{ix}
++ e^{-ix}}{2}\)</span></p></li>
+<li><p><span class="math inline">\(\sin x = \Im(e^{ix}) = \dfrac{e^{ix}
++ e^{-ix}}{2i}\)</span></p></li>
+</ul>
+</div>
+<p>From this, we can derive a general formula for powers of the sine and
+cosine: <span class="math display">\[\cos ^n x
+=  \left(\dfrac{e^{ix}+e^{-ix}}{2}\right) ^n
+        =  \dfrac{1}{2^n}
+\sum_{k=0}^{n}\binom{n}{k}e^{i(n-2k)x}\]</span> Now if we group <span
+class="math inline">\(k\)</span> and <span
+class="math inline">\(n-k\)</span> in pairs to get <span
+class="math inline">\(\cos(n-2k)\)</span>, we get: <span
+class="math display">\[\cos ^n x = \dfrac{1}{2^n} \sum_{k=0}^{n}
+\binom{n}{k} \cos ((n-2k)x)\]</span> Analogously, we also have: <span
+class="math display">\[\sin ^n x = \dfrac{1}{(2i)^n} \sum_{k=0}^{n}
+\binom{n}{k} (-1)^k \cos (\dfrac{\pi n}{2}-(n-2k)x)\]</span></p>
+<p>Now, back to the fourth integral, we first do the same thing: change
+variables <span class="math inline">\(a =
+\sqrt{q-\dfrac{p^2}{4}}\)</span> and <span class="math inline">\(t = x +
+\dfrac{p}{2}\)</span>. This yields: <span
+class="math display">\[\begin{aligned}
+        \int \dfrac{Mx+N}{(x^2 + px + q)^m} \dd t= &amp; \int \dfrac{Mt
++ (N - \frac{Mp}{2})}{(t^2 + a^2)^m} \dd t \\
+        = &amp; M\int \dfrac{t}{(t^2 + a^2)^m} \dd t +
+\left(N-\dfrac{Mp}{2}\right) \int \dfrac{1}{(t^2 + a^2)^m} \dd t
+    
+\end{aligned}\]</span></p>
+<p>Again, to compute the first integral, we use the substitution <span
+class="math inline">\(u = t^2\)</span>. Then it is: <span
+class="math display">\[M\int \dfrac{t}{(t^2 + a^2)^m} \dd t =
+\dfrac{-M}{2(m-1)(t^2 + a^2)^{m-1}} +C\]</span></p>
+<p>For the second integral however, this time we need a different
+substitution. Let <span class="math inline">\(t = a\tan z\)</span>.
+Then: <span class="math inline">\(t^2 +a ^2 = a^2 \sec ^2 z\)</span>,
+and <span class="math inline">\(\dd t = a\sec ^2 \dd z\)</span>. Then
+the integral turns into: <span class="math display">\[\int
+\dfrac{1}{(t^2 + a^2)^m} \dd t = a^{2m-1} \int \cos ^{2m-2} z \dd
+z\]</span> Let <span class="math inline">\(I(z) = \displaystyle{\int \cos
+^{2m-2} z \dd z}\)</span>and now, we can take advantage of the linearity
+rule and the formula for powers of cosine we just derived. The integral
+turns into: <span class="math display">\[\begin{aligned}
+        I(z) = &amp; \int \dfrac{1}{2^{2m-2}} \sum_{k=0}^{2m-2}
+\binom{2m-2}{k}\cos(2(m-k-1)z) \dd z \\
+        = &amp; \dfrac{1}{2^{2m-2}} \sum_{k=0}^{2m-2} \binom{2m-2}{k}
+\dfrac{1}{2m-2-2k} \sin ( 2(m-k-1)z) +C \\
+        = &amp; \dfrac{1}{2^{2m-2}} \left[ \binom{2m-2}{m-1}z +
+\sum_{k=0, k\neq m-1}^{2m-2} \binom{2m-2}{k} \dfrac{1}{2m-2-2k} \sin (
+2(m-k-1)z)\right] +C
+    
+\end{aligned}\]</span> Then the integral, as a whole, evaluates to:</p>
+<p><span class="math display">\[\int \frac{Mx + N}{(x^2 + px + q)^m} \dd
+x
+= \frac{-M}{2(m - 1)(x^2 + px + q)^{m - 1}} + \left(N - \frac{Mp}{2}
+\right) \left( \sqrt{q - \dfrac{p^2}{4}}\right)^{2m-1}\cdot I(z) +
+C\]</span></p>
+<h4 id="integral-of-trigonometric-functions">Integral of trigonometric
+functions</h4>
+<ol>
+<li><p><strong>The general method</strong></p>
+<p>Consider the integral <span class="math inline">\(\displaystyle{\int
+f(\sin x, \cos x)\dd x}\)</span>, where the integrand is a rational
+function in terms of <span class="math inline">\(\sin x\)</span> and
+<span class="math inline">\(\cos x\)</span>. We can use the "universal
+trigonometric substitution" <span class="math inline">\(x = \tan
+\dfrac{t}{2}\)</span>. Then: <span class="math display">\[\sin x =
+\dfrac{2t}{1+t^2}; \quad \cos x = \dfrac{1-t^2}{1+t^2}; \quad \tan x =
+\dfrac{2t}{1-t^2}; \dd t = \dfrac{2 \dd t}{1 + t^2}\]</span> The
+integrand turns into a rational function in terms of <span
+class="math inline">\(t\)</span>.</p></li>
+<li><p><strong>Integrals of the form <span
+class="math inline">\(\displaystyle{\int \sin ^m x \cos ^n x \dd
+x}\)</span>, where <span class="math inline">\(m,n\)</span> are positive
+integers</strong></p>
+<ul>
+<li><p>If <span class="math inline">\(m\)</span> is odd, we let <span
+class="math inline">\(t = \cos x\)</span></p></li>
+<li><p>If <span class="math inline">\(n\)</span> is odd, we let <span
+class="math inline">\(t = \sin x\)</span></p></li>
+<li><p>If both <span class="math inline">\(m\)</span> and <span
+class="math inline">\(n\)</span> are even, we use power-reduction
+formulae: <span class="math display">\[\sin ^2 x = \dfrac{1-\cos 2x}{2};
+\quad \quad \cos ^2 x = \dfrac{1+\cos 2x}{2}\]</span></p>
+<p>Then we’ll have a similar integral with the form <span
+class="math inline">\(\displaystyle{\int \sin ^k 2x \cos ^l 2x \dd
+x}\)</span></p></li>
+</ul></li>
+<li><p><strong>Special forms of <span
+class="math inline">\(\displaystyle{\int f(\sin x, \cos x) \dd
+x}\)</span></strong></p>
+<ul>
+<li><p>Let <span class="math inline">\(t = \cos x\)</span> if <span
+class="math inline">\(f(-\sin x, \cos x) = - f(\sin x, \cos
+x)\)</span></p></li>
+<li><p>Let <span class="math inline">\(t = \sin x\)</span> if <span
+class="math inline">\(f(\sin x, -\cos x) = - f(\sin x, \cos
+x)\)</span></p></li>
+<li><p>Let <span class="math inline">\(t = \tan x\)</span> if <span
+class="math inline">\(f(-\sin x, -\cos x) = f(\sin x, \cos
+x)\)</span></p></li>
+</ul></li>
+</ol>
+<h4 id="integral-of-irrational-expressions">Integral of irrational
+expressions</h4>
+<p>There are two main ways to solve these integrals: using trigonometric
+substitution, and using the Euler substitution. The trig-sub is very
+intuitive, but the Euler substitution is also very nice:</p>
+<div class="concept">
+<p>Let <span class="math inline">\(t = x + \sqrt{x^2 + a}\)</span> for
+the integral <span class="math inline">\(\displaystyle{\int f(x, \sqrt{x^2
++a}) \dd x}\)</span>. Then: <span class="math display">\[\dd t = 1 +
+\dfrac{x} {\sqrt{x^2 + a}} \dd x = \dfrac{x + \sqrt{x^2 +a }} {\sqrt{x^2
++a}} \dd x \Rightarrow \dfrac{\dd t}{t} = \dfrac{\dd x}{\sqrt{x^2 +
+a}}\]</span></p>
+</div>
+<h3 id="definite-integrals">Definite Integrals</h3>
+<h4 id="definition">Definition</h4>
+<p>Say <span class="math inline">\(f(x)\)</span> is defined and bounded
+on <span class="math inline">\([a,b]\)</span>. Partition <span
+class="math inline">\([a,b]\)</span> into <span
+class="math inline">\(n\)</span> subintervals <span
+class="math inline">\([x_i, x_{i+1}]\)</span> where <span
+class="math inline">\(a = x_0 &lt; x_1 &lt; \ldots &lt; x_n =
+b\)</span>. In each interval <span
+class="math inline">\([x_i,x_{i+1}]\)</span>, we choose a point <span
+class="math inline">\(\xi \in [x_i, x_{i+1}]\)</span> and form the
+expression <span class="math display">\[S_n = \sum_{i=0}^{n-1}f(\xi_i)
+\Delta x_i\]</span> where <span class="math inline">\(\Delta x_i =
+x_{i+1} - x_i\)</span>. Here, <span class="math inline">\(S_n\)</span>
+is the Riemann sum. Denote <span class="math inline">\(\lambda =
+\displaystyle{\max_{1 \leq i \leq n}} \Delta x_i\)</span>. If there exists
+the limit <span class="math inline">\(I = \displaystyle{\lim_{\lambda
+\rightarrow 0} S_n}\)</span> that doesn’t depend on how we partition
+<span class="math inline">\([a,b]\)</span> and how we choose <span
+class="math inline">\(\xi_i\)</span> then <span
+class="math inline">\(I\)</span> is called the definite integral of the
+function <span class="math inline">\(f(x)\)</span> on <span
+class="math inline">\([a,b]\)</span>, denoted <span
+class="math inline">\(\displaystyle{\int_a ^bf(x) \dd x}\)</span>. Then we
+say <span class="math inline">\(f(x)\)</span> is integrable on <span
+class="math inline">\([a,b]\)</span>.</p>
+<p>We then have defined the definite integral for all <span
+class="math inline">\(a&lt;b\)</span>. We can then define, if <span
+class="math inline">\(b&lt;a\)</span>, <span
+class="math inline">\(\displaystyle{\int_a ^bf(x) \dd x = - \int_b ^af(x)
+\dd x}\)</span> and when <span class="math inline">\(a = b\)</span>,
+<span class="math inline">\(\displaystyle{\int_a ^bf(x) \dd x =
+0}\)</span>.</p>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"95bd618a7bc43e1f","version":"2025.6.2","r":1,"token":"0357a45f23a943f08700f7f9af191ee6","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+</body>
+</html>
