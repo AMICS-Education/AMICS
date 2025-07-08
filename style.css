@@ -234,6 +234,39 @@ footer {
     animation-duration: 0.5s;
 }
 
+.concept, .insight, .confusion, .important {
+  border-left: 5px solid;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 8px;
+}
+
+.concept {
+  border-color: #4a90e2;
+  background: #e6f2ff;
+}
+
+.insight {
+  border-color: #4caf50;
+  background: #e8f5e9;
+}
+
+.confusion {
+  border-color: #f44336;
+  background: #ffebee;
+}
+
+.important {
+  border-color: #ff9800;
+  background: #fff3e0;
+}
+
+.box-title {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+
 @keyframes erect{
     from{
         transform: scale(100%);
@@ -375,6 +408,7 @@ footer {
         padding: 15px;
     }
 }
+
 
 /* Small mobile phones */
 @media screen and (max-width: 480px) {
